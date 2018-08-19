@@ -1,4 +1,4 @@
-package it.nicus.hexarchitectureapp.integration.enquiries;
+package it.nicus.hexarchitectureapp.adapters.enquiries;
 
 import it.nicus.hexarchitectureapp.core.Enquiries;
 import lombok.Builder;

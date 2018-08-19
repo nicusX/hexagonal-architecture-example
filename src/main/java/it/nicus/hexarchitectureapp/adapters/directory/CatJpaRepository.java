@@ -1,4 +1,4 @@
-package it.nicus.hexarchitectureapp.integration.directory;
+package it.nicus.hexarchitectureapp.adapters.directory;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

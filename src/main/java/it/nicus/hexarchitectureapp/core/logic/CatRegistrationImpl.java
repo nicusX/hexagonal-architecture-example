@@ -1,4 +1,4 @@
-package it.nicus.hexarchitectureapp.core.impl;
+package it.nicus.hexarchitectureapp.core.logic;
 
 import it.nicus.hexarchitectureapp.core.CatDirectory;
 import it.nicus.hexarchitectureapp.core.CatRegistration;
@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
+import java.util.Optional;
 
 /**
  * Implementation of Cat Registration,
@@ -25,9 +26,14 @@ public class CatRegistrationImpl implements CatRegistration {
 
     @Override
     public void newCatArrived(CatArrivedEvent catArrivedEvent) {
-        final Instant registeredAt = Instant.now(); // This is business logic :)
+        final String catName = catArrivedEvent.getCatName();
 
-        directoryService.registerNewCat( toRegistrationRequest( catArrivedEvent, registeredAt ));
+        // Check if the Cat is already registered
+        if (!directoryService.findCatByName(catName).isPresent()) {
+            // If not registered, create an entry in the Directory
+            final Instant registeredAt = Instant.now();
+            directoryService.registerNewCat( toRegistrationRequest( catArrivedEvent, registeredAt ));
+        }
     }
 
     // Maps domain object (an event) to another domain object
@@ -37,5 +43,9 @@ public class CatRegistrationImpl implements CatRegistration {
                 .dateOfBirth( catArrivedEvent.getDateOfBirth())
                 .registeredAt( registeredAt )
                 .build();
+    }
+
+    private boolean isAlreadyRegistered(String catName) {
+        return directoryService.findCatByName(catName).isPresent();
     }
 }

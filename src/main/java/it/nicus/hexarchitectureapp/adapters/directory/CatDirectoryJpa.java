@@ -1,4 +1,4 @@
-package it.nicus.hexarchitectureapp.integration.directory;
+package it.nicus.hexarchitectureapp.adapters.directory;
 
 import it.nicus.hexarchitectureapp.core.CatDirectory;
 import org.springframework.beans.factory.annotation.Autowired;

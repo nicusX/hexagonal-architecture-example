@@ -1,4 +1,4 @@
-package it.nicus.hexarchitectureapp.core.impl;
+package it.nicus.hexarchitectureapp.core.logic;
 
 import it.nicus.hexarchitectureapp.core.CatDirectory;
 import it.nicus.hexarchitectureapp.core.Enquiries;
@@ -28,19 +28,24 @@ public class EnquiryImpl implements Enquiries {
 
     @Override
     public Optional<EnquiryResponse> enquiry(String catName) {
-        return directoryService.findCatByName(catName).map( this::enrichWithMedicalRecordIfAvailable );
+        return directoryService.findCatByName(catName)
+                .map(dirEntry -> toEnquiryResponse(dirEntry, medicalRecordArchive.retrieveRecord(dirEntry.getName())));
     }
 
-    private EnquiryResponse enrichWithMedicalRecordIfAvailable(CatDirectory.CatDirectoryEntry directoryEntry) {
-        return medicalRecordArchive.retrieveRecord(directoryEntry.getName())
-                .map( medicalRecord -> EnquiryResponse.builder()
+    /**
+     * Maps a Directory entry, and an optional Medical Records,
+     * to an Enquiry response domain object
+     */
+    private static EnquiryResponse toEnquiryResponse(CatDirectory.CatDirectoryEntry directoryEntry, Optional<MedicalRecordArchive.MedicalRecord> maybeMedRecords) {
+        return maybeMedRecords
+                .map(medicalRecord -> EnquiryResponse.builder()
                         .name(directoryEntry.getName())
                         .dateOfBirth(directoryEntry.getDateOfBirth())
                         .registeredAt(directoryEntry.getRegisteredAt())
-                        .lastVaccinationDate( medicalRecord.getLastVaccinationDate() )
-                        .neutered( medicalRecord.isNeutered())
+                        .lastVaccinationDate(medicalRecord.getLastVaccinationDate())
+                        .neutered(medicalRecord.isNeutered())
                         .build()
-                ).orElse( EnquiryResponse.builder()
+                ).orElse(EnquiryResponse.builder()
                         .name(directoryEntry.getName())
                         .dateOfBirth(directoryEntry.getDateOfBirth())
                         .registeredAt(directoryEntry.getRegisteredAt())

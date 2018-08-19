@@ -1,4 +1,4 @@
-package it.nicus.hexarchitectureapp.integration.medical_record_archive;
+package it.nicus.hexarchitectureapp.adapters.medical_record_archive;
 
 import it.nicus.hexarchitectureapp.core.MedicalRecordArchive;
 import lombok.Data;

@@ -6,11 +6,20 @@ import lombok.NonNull;
 
 import java.time.LocalDate;
 
+/**
+ * Interface to Cat Registration,
+ * reacting to "Cat Arrived" events.
+ *
+ * (Primary Port)
+ */
 public interface CatRegistration {
 
     void newCatArrived(CatArrivedEvent catArrivedEvent);
 
 
+    /**
+     * Domain object representing the "Cat Arrived" event
+     */
     @Getter @Builder(toBuilder = true)
     class CatArrivedEvent {
         @NonNull private final String catName;

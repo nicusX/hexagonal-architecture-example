@@ -1,4 +1,4 @@
-package it.nicus.hexarchitectureapp.adapters.cat_arrived_notifications;
+package it.nicus.hexarchitectureapp.adapters.cats_arrived;
 
 import it.nicus.hexarchitectureapp.core.CatRegistration;
 import lombok.Data;
