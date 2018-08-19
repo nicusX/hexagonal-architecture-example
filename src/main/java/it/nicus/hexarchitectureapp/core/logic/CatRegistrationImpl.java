@@ -1,12 +1,11 @@
 package it.nicus.hexarchitectureapp.core.logic;
 
-import it.nicus.hexarchitectureapp.core.CatDirectory;
-import it.nicus.hexarchitectureapp.core.CatRegistration;
+import it.nicus.hexarchitectureapp.core.ports.CatDirectory;
+import it.nicus.hexarchitectureapp.core.ports.CatRegistration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
-import java.util.Optional;
 
 /**
  * Implementation of Cat Registration,

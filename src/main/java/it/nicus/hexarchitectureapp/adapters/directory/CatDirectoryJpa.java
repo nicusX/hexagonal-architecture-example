@@ -1,6 +1,6 @@
 package it.nicus.hexarchitectureapp.adapters.directory;
 
-import it.nicus.hexarchitectureapp.core.CatDirectory;
+import it.nicus.hexarchitectureapp.core.ports.CatDirectory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

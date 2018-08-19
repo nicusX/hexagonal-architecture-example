@@ -1,8 +1,8 @@
 package it.nicus.hexarchitectureapp.core.logic;
 
-import it.nicus.hexarchitectureapp.core.CatDirectory;
-import it.nicus.hexarchitectureapp.core.Enquiries;
-import it.nicus.hexarchitectureapp.core.MedicalRecordArchive;
+import it.nicus.hexarchitectureapp.core.ports.CatDirectory;
+import it.nicus.hexarchitectureapp.core.ports.Enquiries;
+import it.nicus.hexarchitectureapp.core.ports.MedicalRecordArchive;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

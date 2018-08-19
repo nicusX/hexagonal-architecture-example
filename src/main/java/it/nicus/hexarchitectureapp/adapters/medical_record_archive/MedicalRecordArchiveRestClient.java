@@ -1,6 +1,6 @@
 package it.nicus.hexarchitectureapp.adapters.medical_record_archive;
 
-import it.nicus.hexarchitectureapp.core.MedicalRecordArchive;
+import it.nicus.hexarchitectureapp.core.ports.MedicalRecordArchive;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.http.HttpStatus;

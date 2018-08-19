@@ -1,6 +1,6 @@
 package it.nicus.hexarchitectureapp.adapters.cats_arrived;
 
-import it.nicus.hexarchitectureapp.core.CatRegistration;
+import it.nicus.hexarchitectureapp.core.ports.CatRegistration;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.kafka.annotation.KafkaListener;

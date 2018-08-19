@@ -1,6 +1,6 @@
 package it.nicus.hexarchitectureapp.adapters.enquiries;
 
-import it.nicus.hexarchitectureapp.core.Enquiries;
+import it.nicus.hexarchitectureapp.core.ports.Enquiries;
 import lombok.Builder;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;

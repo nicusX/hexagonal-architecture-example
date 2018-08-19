@@ -1,4 +1,4 @@
-package it.nicus.hexarchitectureapp.core;
+package it.nicus.hexarchitectureapp.core.ports;
 
 import lombok.Builder;
 import lombok.Getter;
